@@ -14,21 +14,18 @@ var printRightAnswer = function (elem) {
 		 elem.parentNode.style.color = "orange";
 		 elem.parentNode.style.backgroundColor = "rgb(5, 175, 30)";
 }
-/*For radiobutton*/
+//For radiobutton
 var radioButtonSelection = function (elem){
 	var p = 0;
 	for (var i=0; i<elem.length; i++){
 		
 		if (elem[i].checked && elem[i].value>0){    
+			//printRightAnswer(elem[i]);	
 			p++;
 		}
 
 		if(elem[i].checked && elem[i].value==0){ 
 			printWrongAnswer(elem[i]);
-		}
-
-		if (elem[i].value > 0){
-			printRightAnswer(elem[i]);	
 		}
 	}
 	return p;
@@ -38,10 +35,6 @@ var checkBoxiesSelection = function (elem){
 	var z=0;
 	var j = 0;
 	for (var i=0; i<elem.length; i++){
-		if (elem[i].value>0){
-			printRightAnswer(elem[i]);	
-		}
-
 		if(elem[i].checked && elem[i].value==0){ 
 			printWrongAnswer(elem[i]);
 			z++;	 
@@ -49,25 +42,25 @@ var checkBoxiesSelection = function (elem){
 		}
 
 		else if (elem[i].checked && elem[i].value > 0 && z == 0){
-				j += Number(elem[i].value)
-			}
-
-		if (j > 1){
-				j=Number(j.toFixed(1));
+			//printRightAnswer(elem[i]);
+			j += Number(elem[i].value)
 		}
 	}
 	return j;
 }
-	
-function getTestResult(){
+var resultMessage = function(j,f,k){
 	var maxMark = 5;
-	//RadioButtons
+	var Sum = + j + + f + +k;
+	var procRes = Sum* 100/maxMark;
+	alert("Вы набрали: "+Sum+ " баллов из " + maxMark+" возможных"+
+			"\n    Процент правильных ответов: "+ procRes+"%");
+}
+
+function getTestResult(){
 	var a = radioButtonSelection(radioBut)
-	//CheckBoxes
 	var b = checkBoxiesSelection(checkBoxBut1);	
 	var c = checkBoxiesSelection(checkBoxBut2);	
-
-	alert("Your Result is "+((+ a + +b + +c) * 100 / Number(maxMark))+"%");
+	resultMessage(a,b,c);
 }
 /*Логика для чeкбоксов. Если отмечены все ответы правильно - 1 балл,
  Если есть хотя бы одна ошибка, даже если есть и верные ответы - 0 баллов,
