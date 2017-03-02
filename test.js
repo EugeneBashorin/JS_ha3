@@ -5,15 +5,15 @@ var checkBoxBut2= document.getElementsByClassName("checkBoxBut2"); //Important
 
 testResult.onclick = function() { getTestResult()}
 
-var printWrongAnswer = function (elem) {
-		 elem.parentNode.style.color = "blue";
-		 elem.parentNode.style.backgroundColor = "rgb(240, 90, 70)";
-}
+//var printWrongAnswer = function (elem) {
+//		 elem.parentNode.style.color = "blue";
+//		 elem.parentNode.style.backgroundColor = "rgb(240, 90, 70)";
+//}
 
-var printRightAnswer = function (elem) {
-		 elem.parentNode.style.color = "orange";
-		 elem.parentNode.style.backgroundColor = "rgb(5, 175, 30)";
-}
+//var printRightAnswer = function (elem) {
+//		 elem.parentNode.style.color = "orange";
+//		 elem.parentNode.style.backgroundColor = "rgb(5, 175, 30)";
+//}
 //For radiobutton
 var radioButtonSelection = function (elem){
 	var p = 0;
@@ -25,7 +25,7 @@ var radioButtonSelection = function (elem){
 		}
 
 		if(elem[i].checked && elem[i].value==0){ 
-			printWrongAnswer(elem[i]);
+			//printWrongAnswer(elem[i]);
 		}
 	}
 	return p;
@@ -36,7 +36,7 @@ var checkBoxiesSelection = function (elem){
 	var j = 0;
 	for (var i=0; i<elem.length; i++){
 		if(elem[i].checked && elem[i].value==0){ 
-			printWrongAnswer(elem[i]);
+			//printWrongAnswer(elem[i]);
 			z++;	 
 			j = 0;
 		}
