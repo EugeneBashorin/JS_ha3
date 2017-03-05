@@ -90,11 +90,7 @@ function ClearDisplayFunc(){                  //Reset
 	}
 
 function ResultOfOperation(a,b,c){
-	if(!Number(b) || !Number(c)){							//protection against keyboard symbols
-		alert("One of the members contains symbols. Try again.")
-		return ClearDisplayFunc();
-		}	
-	else{
+	if(Number(b) && Number(c)|| Number(c) == 0){							//protection against keyboard symbols
 		switch (a){
 			case "+" :  
 				displ.value = Number(b) + Number(c);
@@ -119,6 +115,11 @@ function ResultOfOperation(a,b,c){
 				break;
 				}
 		}
+	else{	
+		alert("One of the members contains symbols. Try again.")
+		return ClearDisplayFunc();
+		}	
+	
 }
 
 /*if(Number(displ.value)%1 != 0){
